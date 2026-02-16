@@ -160,14 +160,14 @@
                         </div>
                         <div class="hidden md:flex items-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-2xl">→</span></div>
                     </div>
-                    <div class="group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01]">
+                    <div class="group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01] cursor-pointer" onclick="openModal('seminar')">
                         <div class="md:w-32 flex flex-col">
                             <span class="text-[13px] font-mono font-bold text-black/40">2025.11.01</span>
                             <span class="text-[10px] font-bold text-black border border-black inline-block px-1.5 py-0.5 mt-2 w-fit">EVENT</span>
                         </div>
                         <div class="flex-grow">
                             <h4 class="text-xl font-bold group-hover:translate-x-2 transition-transform duration-300">2025年度 公開ゼミナールの開催について</h4>
-                            <p class="text-sm text-black/60 mt-2">CLICK TO VIEW IMAGE</p>
+                            <button type="button" class="text-sm text-black/60 mt-2 underline hover:text-black transition-colors" aria-label="公開ゼミナール画像を表示">CLICK TO VIEW IMAGE</button>
                         </div>
                         <div class="hidden md:flex items-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-2xl">→</span></div>
                     </div>
@@ -412,6 +412,19 @@
         </section>
     </main>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4" onclick="if(event.target.id === 'imageModal') closeModal()">
+        <div class="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-auto" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center p-4 border-b border-black/10 sticky top-0 bg-white">
+                <h3 class="text-lg font-bold" id="modalTitle">画像</h3>
+                <button type="button" class="text-2xl font-bold text-black/60 hover:text-black transition-colors" onclick="closeModal()" aria-label="モーダルを閉じる">&times;</button>
+            </div>
+            <div class="p-4">
+                <img id="modalImage" src="" alt="" class="w-full h-auto rounded">
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-black text-white/40 py-12 text-center border-t border-white/5">
         <p class="text-xs font-bold tracking-[0.2em] uppercase">
             &copy; <span id="year">2026</span> SAKO SEMINAR / Hiroshima Shudo University
@@ -436,6 +449,32 @@
             const y = document.getElementById('year');
             if(y){ y.textContent = new Date().getFullYear(); }
         })();
+
+        // Modal functions
+        function openModal(imageId){
+            const modal = document.getElementById('imageModal');
+            const img = document.getElementById('modalImage');
+            const title = document.getElementById('modalTitle');
+            
+            if(imageId === 'seminar'){
+                title.textContent = '2025年度 公開ゼミナールの開催について';
+                img.src = 'images/seminar.jpg';
+                img.alt = '公開ゼミナール参加者集合写真';
+            }
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(){
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape') closeModal();
+        });
     </script>
 </body>
 </html>
