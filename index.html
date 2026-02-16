@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迫ゼミナール | 広島修道大学</title>
+    <meta name="description" content="迫ゼミナール（広島修道大学）- 社会保障・ライフデザイン論。理論と実践を往復し社会課題をデザインする研究室の紹介サイトです。">
+    <!-- Open Graph -->
+    <meta property="og:title" content="迫ゼミナール | 広島修道大学">
+    <meta property="og:description" content="社会保障・ライフデザイン論。理論と実践で未来を切り拓く力を育成します。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Preload Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (via CDN for dev) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root{--header-height:88px}
+        html{scroll-behavior:smooth;scroll-padding-top:var(--header-height)}
+        /* Skip link */
+        .skip-link{position:absolute;left:0;top:0;background:#000;color:#fff;padding:8px 12px;z-index:99999;transform:translateY(-120%);transition:transform .2s}
+        .skip-link:focus{transform:translateY(0)}
+
+        /* Noise overlay (decorative) */
+        .noise-overlay{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3e%3cfilter id='noiseFilter'%3e%3cfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3e%3c/filter%3e%3crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3e%3c/svg%3e");background-repeat:repeat;opacity:.03;z-index:9999;pointer-events:none}
+
+        /* Focus styles for accessibility */
+        a:focus,button:focus{outline:3px solid rgba(0,0,0,.85);outline-offset:3px}
+
+        /* Hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar{display:none}
+    </style>
+</head>
+<body class="font-sans">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/5 py-6 px-8 md:px-16 flex justify-between items-center transition-all" style="height:var(--header-height)">
+        <div class="flex items-center gap-3 font-bold text-2xl tracking-tighter text-black" aria-hidden="false">
+            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6"/><path d="M22 10a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v0"/><path d="M22 10V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v6"/><path d="m22 2-7 12-3-3-4 4-2-2"/></svg>
+            <span class="leading-none">SAKO SEMINAR</span>
+        </div>
+
+        <nav id="primary-nav" class="hidden md:flex gap-12 text-[13px] font-bold text-black/60 tracking-widest uppercase" role="navigation" aria-label="Primary navigation">
+            <a href="#about" class="hover:text-black transition-colors">Philosophy</a>
+            <a href="#news" class="hover:text-black transition-colors">News</a>
+            <a href="#members" class="hover:text-black transition-colors">Members</a>
+            <a href="#contact" class="hover:text-black transition-colors">Contact</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+            <button id="menuToggle" aria-controls="mobile-menu" aria-expanded="false" type="button" class="flex items-center gap-1 p-2" aria-label="Toggle navigation">
+                <span class="sr-only">Menu</span>
+                <svg width="22" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile nav (hidden by default) -->
+    <nav id="mobile-menu" class="fixed inset-x-4 top-[var(--header-height)] z-40 bg-white/95 rounded-lg p-4 shadow-md hidden md:hidden" role="navigation" aria-label="Mobile navigation">
+        <a href="#about" class="block py-2 font-bold">Philosophy</a>
+        <a href="#news" class="block py-2 font-bold">News</a>
+        <a href="#members" class="block py-2 font-bold">Members</a>
+        <a href="#contact" class="block py-2 font-bold">Contact</a>
+    </nav>
+
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center px-8 md:px-24 bg-white relative overflow-hidden">
+            <div class="absolute inset-0 z-0 pointer-events-none">
+                <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 40px 40px;" aria-hidden="true"></div>
+                <div class="absolute inset-0 flex justify-between px-24 opacity-[0.02]" aria-hidden="true">
+                    <div class="w-[1px] h-full bg-black"></div>
+                    <div class="w-[1px] h-full bg-black hidden md:block"></div>
+                    <div class="w-[1px] h-full bg-black hidden md:block"></div>
+                    <div class="w-[1px] h-full bg-black"></div>
+                </div>
+                <div class="absolute -right-20 top-1/2 -translate-y-1/2 text-[28vw] font-black text-black/[0.015] leading-none select-none italic tracking-tighter" aria-hidden="true">DESIGN</div>
+            </div>
+
+            <div class="z-10 max-w-6xl relative">
+                <div class="mb-12">
+                    <h1 class="text-[12vw] md:text-[8vw] font-black leading-[0.85] tracking-tighter text-black uppercase">
+                        Social<br />
+                        Security <span class="text-black/10">&</span><br />
+                        <span class="italic">Life Design<span class="text-black/10">.</span></span>
+                    </h1>
+                </div>
+                <div class="max-w-xl border-l-[1px] border-black/10 pl-8 relative">
+                    <div class="mb-6">
+                        <span class="text-xs font-bold text-black/40 uppercase tracking-widest block mb-1">Hiroshima Shudo University</span>
+                        <p class="text-lg font-bold text-black">迫ゼミナール：社会保障・ライフデザイン論</p>
+                    </div>
+                    <p class="text-xl md:text-2xl font-medium text-black/80 leading-snug mb-8">
+                        社会の諸問題を、自分たちの視点でデザインする。<br />
+                        理論と実践の往復から、未来を切り拓く力を。
+                    </p>
+                    <div class="flex gap-8 items-center">
+                        <button type="button" class="bg-black text-white px-8 py-4 text-xs font-bold tracking-[0.3em] uppercase hover:invert transition-all duration-300">Explore Mission</button>
+                        <div class="text-[10px] font-bold text-black/30 tracking-widest uppercase hidden md:block">Est. 1960 — Research Lab</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-12 left-8 md:left-24 right-8 md:right-24 flex justify-between items-end">
+                <div class="flex items-center gap-4">
+                    <div class="w-[1px] h-12 bg-black/20"></div>
+                    <span class="text-[10px] font-bold tracking-[0.5em] text-black/30 uppercase rotate-90 origin-bottom-left whitespace-nowrap">Scroll Down</span>
+                </div>
+                <div class="text-[10px] font-bold tracking-[0.2em] text-black/20 uppercase text-right leading-relaxed hidden md:block">
+                    Social Security System<br />Social Life Design Theory
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="py-24 px-8 md:px-24 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16">
+                    <h2 class="text-[12px] font-bold tracking-[0.4em] text-black/30 uppercase mb-4">Latest Insights</h2>
+                    <h3 class="text-4xl font-bold tracking-tighter italic">News & Activities</h3>
+                </div>
+                <div class="divide-y divide-black/5 border-t border-black/5">
+                    <div class="group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01]">
+                        <div class="md:w-32 flex flex-col">
+                            <span class="text-[13px] font-mono font-bold text-black/40">2026.02.16</span>
+                            <span class="text-[10px] font-bold text-black border border-black inline-block px-1.5 py-0.5 mt-2 w-fit">INFO</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-xl font-bold group-hover:translate-x-2 transition-transform duration-300">2025年度 迫ゼミナール紹介サイトを公開しました</h4>
+                        </div>
+                        <div class="hidden md:flex items-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-2xl">→</span></div>
+                    </div>
+                    <div class="group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01]">
+                        <div class="md:w-32 flex flex-col">
+                            <span class="text-[13px] font-mono font-bold text-black/40">2025.12.13</span>
+                            <span class="text-[10px] font-bold text-black border border-black inline-block px-1.5 py-0.5 mt-2 w-fit">ACTIVITY</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-xl font-bold group-hover:translate-x-2 transition-transform duration-300">インターゼミナール大会（広島）へ参加しました</h4>
+                        </div>
+                        <div class="hidden md:flex items-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-2xl">→</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-core" class="py-32 px-8 md:px-24 bg-white relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+                    <div>
+                        <h2 class="text-[12px] font-bold tracking-[0.4em] text-black/30 uppercase mb-4">Core Concepts</h2>
+                        <h3 class="text-5xl font-bold italic tracking-tighter text-black">About<span class="text-black/5">.</span></h3>
+                    </div>
+                    <p class="text-black/40 text-sm max-w-xs font-medium leading-relaxed">
+                        理論と実践の往復から、<br/>社会を自分たちの視点でデザインする。
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3">
+                    <div class="group p-12 border border-black/5 hover:bg-black transition-all duration-500">
+                        <div class="w-12 h-12 border border-black/10 flex items-center justify-center mb-12 group-hover:border-white/20 group-hover:text-white transition-all duration-500" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-6 text-black group-hover:text-white transition-colors duration-500">研究テーマ</h3>
+                        <p class="text-black/60 leading-relaxed text-sm group-hover:text-white/60 transition-colors duration-500">「社会保障、ライフデザイン論」。社会保障や人生の諸問題について、学生の視点で解決策を探求します。</p>
+                    </div>
+                    <div class="group p-12 border border-black/5 hover:bg-black transition-all duration-500">
+                        <div class="w-12 h-12 border border-black/10 flex items-center justify-center mb-12 group-hover:border-white/20 group-hover:text-white transition-all duration-500" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-6 text-black group-hover:text-white transition-colors duration-500">縦のつながり</h3>
+                        <p class="text-black/60 leading-relaxed text-sm group-hover:text-white/60 transition-colors duration-500">全学年合同で学ぶ時間を重視。横のつながりだけでなく、先輩後輩の「縦のつながり」も大切にしています。</p>
+                    </div>
+                    <div class="group p-12 border border-black/5 hover:bg-black transition-all duration-500">
+                        <div class="w-12 h-12 border border-black/10 flex items-center justify-center mb-12 group-hover:border-white/20 group-hover:text-white transition-all duration-500" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-6 text-black group-hover:text-white transition-colors duration-500">就活・キャリア支援</h3>
+                        <p class="text-black/60 leading-relaxed text-sm group-hover:text-white/60 transition-colors duration-500">希望する業界への就職（100%）を目指し、迫先生が手厚くサポート。個別面談や指導も充実しています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section id="about" class="py-32 px-8 md:px-24 bg-[#0a0a0a] text-white overflow-hidden relative">
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[30vw] font-black text-white/[0.02] select-none pointer-events-none tracking-tighter italic" aria-hidden="true">ETHOS</div>
+            <div class="max-w-6xl mx-auto z-10 relative">
+                <div class="flex flex-col md:flex-row items-start gap-20">
+                    <div class="hidden md:block">
+                        <div class="rotate-180 text-xs font-bold tracking-[1em] uppercase text-white/20 whitespace-nowrap" style="writing-mode: vertical-rl;" aria-hidden="true">Human Security & Design</div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="mb-20">
+                            <h2 class="text-[12px] font-bold tracking-[0.4em] text-white/30 uppercase mb-4">Our DNA</h2>
+                            <h3 class="text-6xl font-bold italic tracking-tighter mb-12">Philosophy<span class="text-white/10">.</span></h3>
+                            <p class="text-3xl md:text-5xl font-black leading-[1.1] italic mb-16 max-w-3xl">
+                                社会保障とは、制度の集合体ではない。<br />それは、人間が幸福に生きるためのデザインそのものです。
+                            </p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-12 border-t border-white/10 pt-16">
+                            <div class="space-y-6">
+                                <h4 class="text-xs font-bold tracking-widest uppercase text-white/40">Knowledge</h4>
+                                <p class="text-lg text-white/60 leading-relaxed italic">迫ゼミナールでは、単なる知識の習得にとどまらず、社会制度の裏側にある「問い」を立てる力を養います。</p>
+                            </div>
+                            <div class="space-y-6">
+                                <h4 class="text-xs font-bold tracking-widest uppercase text-white/40">Community</h4>
+                                <p class="text-lg text-white/60 leading-relaxed">「縦のつながり」を重んじるコミュニティの中で、一生モノの議論を尽くし、社会をリードする人材を輩出します。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="py-24 px-8 md:px-24 bg-[#fafafa]">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-24">
+                    <div>
+                        <div class="mb-12">
+                            <h2 class="text-[12px] font-bold tracking-[0.4em] text-black/30 uppercase mb-4">Timeline</h2>
+                            <h3 class="text-4xl font-bold italic tracking-tighter text-black">Annual Schedule</h3>
+                            <p class="text-[10px] text-black/40 mt-2">※日程は変更になる可能性があります</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex border-b border-black/5 pb-4 group">
+                                <span class="w-24 text-xs font-bold text-black/40 pt-1 uppercase tracking-wider">前期 2限</span>
+                                <div>
+                                    <span class="text-[10px] font-bold text-black/20 uppercase tracking-widest block mb-1">Lecture</span>
+                                    <p class="text-base font-bold text-black group-hover:pl-2 transition-all duration-300">社会保障、ライフデザイン論</p>
+                                </div>
+                            </div>
+                            <div class="flex border-b border-black/5 pb-4 group">
+                                <span class="w-24 text-xs font-bold text-black/40 pt-1 uppercase tracking-wider">前期 3限</span>
+                                <div>
+                                    <span class="text-[10px] font-bold text-black/20 uppercase tracking-widest block mb-1">Seminar</span>
+                                    <p class="text-base font-bold text-black group-hover:pl-2 transition-all duration-300">4年生 卒論意見交流</p>
+                                </div>
+                            </div>
+                            <div class="flex border-b border-black/5 pb-4 group">
+                                <span class="w-24 text-xs font-bold text-black/40 pt-1 uppercase tracking-wider">8月</span>
+                                <div>
+                                    <span class="text-[10px] font-bold text-black/20 uppercase tracking-widest block mb-1">Event</span>
+                                    <p class="text-base font-bold text-black group-hover:pl-2 transition-all duration-300">夏合宿</p>
+                                </div>
+                            </div>
+                            <div class="flex border-b border-black/5 pb-4 group">
+                                <span class="w-24 text-xs font-bold text-black/40 pt-1 uppercase tracking-wider">11月</span>
+                                <div>
+                                    <span class="text-[10px] font-bold text-black/20 uppercase tracking-widest block mb-1">Event</span>
+                                    <p class="text-base font-bold text-black group-hover:pl-2 transition-all duration-300">公開ゼミ</p>
+                                </div>
+                            </div>
+                            <div class="flex border-b border-black/5 pb-4 group">
+                                <span class="w-24 text-xs font-bold text-black/40 pt-1 uppercase tracking-wider">12月</span>
+                                <div>
+                                    <span class="text-[10px] font-bold text-black/20 uppercase tracking-widest block mb-1">Event</span>
+                                    <p class="text-base font-bold text-black group-hover:pl-2 transition-all duration-300">インターゼミナール大会</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-12">
+                            <h2 class="text-[12px] font-bold tracking-[0.4em] text-black/30 uppercase mb-4">Future</h2>
+                            <h3 class="text-4xl font-bold italic tracking-tighter text-black">Career Paths</h3>
+                            <p class="text-[10px] text-black/40 mt-2">卒業生の主な進路業界</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-black text-white text-xs font-bold tracking-wider hover:bg-white hover:text-black border border-black transition-colors duration-300">不動産</span>
+                            <span class="px-4 py-2 bg-black text-white text-xs font-bold tracking-wider hover:bg-white hover:text-black border border-black transition-colors duration-300">公務員</span>
+                            <span class="px-4 py-2 bg-black text-white text-xs font-bold tracking-wider hover:bg-white hover:text-black border border-black transition-colors duration-300">IT</span>
+                            <span class="px-4 py-2 bg-black text-white text-xs font-bold tracking-wider hover:bg-white hover:text-black border border-black transition-colors duration-300">コンサル</span>
+                            <span class="px-4 py-2 bg-black text-white text-xs font-bold tracking-wider hover:bg-white hover:text-black border border-black transition-colors duration-300">商社</span>
+                            <span class="px-4 py-2 bg-black text-white text-xs font-bold tracking-wider hover:bg-white hover:text-black border border-black transition-colors duration-300">広告</span>
+                            <span class="px-4 py-2 bg-black text-white text-xs font-bold tracking-wider hover:bg-white hover;text-black border border-black transition-colors duration-300">観光</span>
+                            <span class="px-4 py-2 bg-black text-white text-xs font-bold tracking-wider hover:bg-white hover:text-black border border-black transition-colors duration-300">介護</span>
+                            <span class="px-4 py-2 bg-black text-white text-xs font-bold tracking-wider hover:bg-white hover:text-black border border-black transition-colors duration-300">リース</span>
+                        </div>
+                        <div class="mt-12 p-8 border border-black/5 bg-white">
+                            <p class="text-sm font-bold text-black mb-4 italic tracking-widest uppercase opacity-30 underline underline-offset-8">Student's Life</p>
+                            <p class="text-sm leading-relaxed text-black/60">一緒にいる時間を大切にしています。ゼミ合宿、インゼミ大会（東京、京都など）への参加に加え、毎週のお昼休みには昼食を共にし、活動報告や共有を行っています。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Members Section -->
+        <section id="members" class="py-24 px-8 md:px-24 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-20">
+                    <h2 class="text-[12px] font-bold tracking-[0.4em] text-black/30 uppercase mb-4">Human Resources</h2>
+                    <h3 class="text-4xl font-bold italic tracking-tighter">Members</h3>
+                </div>
+                <div class="space-y-24">
+                    <!-- Faculty -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-12">
+                            <span class="text-2xl font-black italic">Faculty</span>
+                            <span class="flex-grow h-[1px] bg-black/5"></span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div class="group flex gap-8 items-center border-l-[1px] border-black pl-8">
+                                <div class="w-32 h-40 bg-black/5 flex items-center justify-center"><span class="text-[10px] font-bold tracking-widest uppercase rotate-90 text-black/20">Faculty</span></div>
+                                <div>
+                                    <p class="text-[11px] font-bold text-black/30 mb-1 uppercase tracking-wider">Professor / 経済科学部</p>
+                                    <p class="text-3xl font-black italic mb-2">Sako Kazumithu</p>
+                                    <p class="text-xl font-bold">迫 一光</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 4th Year -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-12">
+                            <span class="text-2xl font-black italic">4th Year</span>
+                            <span class="flex-grow h-[1px] bg-black/5"></span>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12">
+                            <div class="group">
+                                <div class="aspect-[4/5] bg-black/5 mb-4 group-hover:bg-black/10 transition-colors duration-300 relative overflow-hidden" aria-hidden="true"><div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="text-[8px] font-bold tracking-widest uppercase rotate-90">STUDENT</span></div></div>
+                                <p class="text-[10px] font-bold text-black/30 mb-1 uppercase tracking-wider">Kageyama Tatsuya</p><p class="font-bold text-base">陰山 樹哉</p>
+                            </div>
+                            <div class="group">
+                                <div class="aspect-[4/5] bg-black/5 mb-4 group-hover:bg-black/10 transition-colors duration-300 relative overflow-hidden" aria-hidden="true"><div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="text-[8px] font-bold tracking-widest uppercase rotate-90">STUDENT</span></div></div>
+                                <p class="text-[10px] font-bold text-black/30 mb-1 uppercase tracking-wider">Saeki Takuya</p><p class="font-bold text-base">佐伯 拓哉</p>
+                            </div>
+                            <div class="group">
+                                <div class="aspect-[4/5] bg-black/5 mb-4 group-hover:bg-black/10 transition-colors duration-300 relative overflow-hidden" aria-hidden="true"><div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="text-[8px] font-bold tracking-widest uppercase rotate-90">STUDENT</span></div></div>
+                                <p class="text-[10px] font-bold text-black/30 mb-1 uppercase tracking-wider">Motoki Asahi</p><p class="font-bold text-base">元木 朝陽</p>
+                            </div>
+                            <div class="group">
+                                <div class="aspect-[4/5] bg-black/5 mb-4 group-hover:bg-black/10 transition-colors duration-300 relative overflow-hidden" aria-hidden="true"><div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="text-[8px] font-bold tracking-widest uppercase rotate-90">STUDENT</span></div></div>
+                                <p class="text-[10px] font-bold text-black/30 mb-1 uppercase tracking-wider">Furukawa you</p><p class="font-bold text-base">古川 結衣</p>
+                            </div>
+                            <div class="group">
+                                <div class="aspect-[4/5] bg-black/5 mb-4 group-hover:bg-black/10 transition-colors duration-300 relative overflow-hidden" aria-hidden="true"><div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="text-[8px] font-bold tracking-widest uppercase rotate-90">STUDENT</span></div></div>
+                                <p class="text-[10px] font-bold text-black/30 mb-1 uppercase tracking-wider">Yukii kenta</p><p class="font-bold text-base">行井 健太</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Section -->
+        <section id="contact" class="py-24 px-8 md:px-24 bg-gray-50 border-t border-black/5">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-20 items-center">
+                    <div>
+                        <h2 class="text-[12px] font-bold tracking-[0.4em] text-black/30 uppercase mb-4">Admissions</h2>
+                        <h3 class="text-5xl font-bold italic tracking-tighter mb-8">Join the Lab.</h3>
+                        <p class="text-xl text-black/60 leading-relaxed mb-12">迫ゼミナールでは、情熱を持って社会保障と真剣に向き合う学生を求めています。<br />共に学び、共に成長しましょう。</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                                <div>
+                                    <p class="font-bold uppercase tracking-wider text-xs text-black/40">Schedule</p>
+                                    <p class="font-bold">毎週月曜：2.3限目（目安）</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <div>
+                                    <p class="font-bold uppercase tracking-wider text-xs text-black/40">Location</p>
+                                    <p class="font-bold">未定：決まり次第更新いたします</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-black p-12 text-white flex flex-col justify-center aspect-square md:aspect-[4/3]">
+                        <span class="text-[14px] font-bold tracking-[0.5em] text-white/40 uppercase mb-6">Contact & Inquiries</span>
+                        <h4 class="text-3xl font-bold italic mb-8">Contact Professor.</h4>
+                        <p class="text-white/60 mb-12 leading-relaxed">ゼミのご案内や個別相談については、<br />学内掲示または直接教員室までお越しください。</p>
+                        <button type="button" class="w-fit border-b border-white py-2 text-sm font-bold tracking-[0.3em] uppercase hover:pl-4 transition-all duration-300">Go to Faculty Directory</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-white/40 py-12 text-center border-t border-white/5">
+        <p class="text-xs font-bold tracking-[0.2em] uppercase">
+            &copy; <span id="year">2026</span> SAKO SEMINAR / Hiroshima Shudo University
+        </p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        (function(){
+            const btn = document.getElementById('menuToggle');
+            const menu = document.getElementById('mobile-menu');
+            if(!btn || !menu) return;
+            btn.addEventListener('click', ()=>{
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!expanded));
+                menu.classList.toggle('hidden');
+            });
+        })();
+
+        // Update year (graceful with static fallback)
+        (function(){
+            const y = document.getElementById('year');
+            if(y){ y.textContent = new Date().getFullYear(); }
+        })();
+    </script>
+</body>
+</html>
