@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <rect width="64" height="64" fill="#000000"/>
+  
+  <!-- Design stylized 'S' -->
+  <g stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top curve -->
+    <path d="M 18 20 Q 18 15 28 15 Q 35 15 35 20 Q 35 24 28 26 L 28 26"/>
+    
+    <!-- Middle line -->
+    <line x1="28" y1="26" x2="28" y2="38"/>
+    
+    <!-- Bottom curve -->
+    <path d="M 28 38 L 28 38 Q 35 40 35 44 Q 35 49 28 49 Q 18 49 18 44 Q 18 40 28 42"/>
+  </g>
+  
+  <!-- Accent lines for design thinking -->
+  <line x1="42" y1="16" x2="50" y2="24" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  <line x1="42" y1="48" x2="50" y2="40" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+</svg>
