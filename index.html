@@ -46,6 +46,29 @@
 
         /* Hide scrollbar but keep functionality */
         .no-scrollbar::-webkit-scrollbar{display:none}
+
+        /* Enhanced Hero Section */
+        .hero-section{background:linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #efefef 100%);position:relative;overflow:hidden}
+        .hero-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(600px at 50% 0%, rgba(0,0,0,0.05) 0%, transparent 80%);pointer-events:none}
+
+        /* Enhanced NEWS items hover */
+        .news-item{transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
+        .news-item:hover{background-color:rgba(0,0,0,0.02);border-left:3px solid #000;padding-left:calc(2rem - 3px);box-shadow:0 8px 32px rgba(0,0,0,0.04)}
+
+        /* Smooth button transitions */
+        .btn-primary{transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
+        .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:rgba(0,0,0,0.1);transition:left 0.3s}
+        .btn-primary:hover::before{left:100%}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.15)}
+
+        /* Section accents */
+        .section-accent{position:relative}
+        .section-accent::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg, transparent, #000, transparent);opacity:0.1}
+
+        /* Animated underline */
+        .underline-animate{position:relative;display:inline-block}
+        .underline-animate::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#000;transition:width 0.4s cubic-bezier(0.4,0,0.2,1)}
+        .underline-animate:hover::after{width:100%}
     </style>
 </head>
 <body class="font-sans">
@@ -85,7 +108,7 @@
 
     <main id="main">
         <!-- Hero Section -->
-        <section class="min-h-screen flex flex-col justify-center px-8 md:px-24 bg-white relative overflow-hidden">
+        <section class="hero-section min-h-screen flex flex-col justify-center px-8 md:px-24 bg-white relative overflow-hidden">
             <div class="absolute inset-0 z-0 pointer-events-none">
                 <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 40px 40px;" aria-hidden="true"></div>
                 <div class="absolute inset-0 flex justify-between px-24 opacity-[0.02]" aria-hidden="true">
@@ -115,7 +138,7 @@
                         理論と実践の往復から、未来を切り拓く力を。
                     </p>
                     <div class="flex gap-8 items-center">
-                        <button type="button" class="bg-black text-white px-8 py-4 text-xs font-bold tracking-[0.3em] uppercase hover:invert transition-all duration-300">Explore Mission</button>
+                        <button type="button" class="bg-black text-white px-8 py-4 text-xs font-bold tracking-[0.3em] uppercase btn-primary">Explore Mission</button>
                         <div class="text-[10px] font-bold text-black/30 tracking-widest uppercase hidden md:block">Est. 1960 — Research Lab</div>
                     </div>
                 </div>
@@ -140,7 +163,7 @@
                     <h3 class="text-4xl font-bold tracking-tighter italic">News & Activities</h3>
                 </div>
                 <div class="divide-y divide-black/5 border-t border-black/5">
-                    <div class="group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01]">
+                    <div class="news-item group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01]">
                         <div class="md:w-32 flex flex-col">
                             <span class="text-[13px] font-mono font-bold text-black/40">2026.02.16</span>
                             <span class="text-[10px] font-bold text-black border border-black inline-block px-1.5 py-0.5 mt-2 w-fit">INFO</span>
@@ -150,7 +173,7 @@
                         </div>
                         <div class="hidden md:flex items-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-2xl">→</span></div>
                     </div>
-                    <div class="group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01] cursor-pointer" onclick="openModal('interseminar')">
+                    <div class="news-item group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01] cursor-pointer" onclick="openModal('interseminar')">
                         <div class="md:w-32 flex flex-col">
                             <span class="text-[13px] font-mono font-bold text-black/40">2025.12.13</span>
                             <span class="text-[10px] font-bold text-black border border-black inline-block px-1.5 py-0.5 mt-2 w-fit">ACTIVITY</span>
@@ -161,7 +184,7 @@
                         </div>
                         <div class="hidden md:flex items-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-2xl">→</span></div>
                     </div>
-                    <div class="group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01] cursor-pointer" onclick="openModal('seminar')">
+                    <div class="news-item group py-8 flex flex-col md:flex-row gap-4 md:gap-12 transition-colors hover:bg-black/[0.01] cursor-pointer" onclick="openModal('seminar')">
                         <div class="md:w-32 flex flex-col">
                             <span class="text-[13px] font-mono font-bold text-black/40">2025.11.01</span>
                             <span class="text-[10px] font-bold text-black border border-black inline-block px-1.5 py-0.5 mt-2 w-fit">EVENT</span>
@@ -177,7 +200,7 @@
         </section>
 
         <!-- About Section -->
-        <section id="about-core" class="py-32 px-8 md:px-24 bg-white relative">
+        <section id="about-core" class="section-accent py-32 px-8 md:px-24 bg-white relative">
             <div class="max-w-6xl mx-auto">
                 <div class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div>
