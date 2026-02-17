@@ -1,0 +1,23 @@
+# Robots.txt for 迫ゼミナール website
+# Sako Seminar - Hiroshima Shudo University
+
+User-agent: *
+Allow: /
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://kentayukii-creator.github.io/sakozemi/sitemap.xml
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 1
+
+# Disallow specific paths if needed
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
